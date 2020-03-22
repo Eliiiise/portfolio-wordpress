@@ -1,5 +1,10 @@
 .content-projects {
   position: relative;
+  overflow: hidden;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   .projet {
     height: 100vh;
@@ -15,9 +20,21 @@
 
       .content-project {
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        pointer-events: none;
+        margin-top: 25vh;
 
         span {
           overflow: hidden;
+          z-index: 10;
+          display: block;
+          position: absolute;
+          left: 6%;
+          top: 10vh;
+          height: 280px;
         }
 
         img {
