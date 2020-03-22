@@ -1,0 +1,16 @@
+body {
+  background-color: $light-grey;
+  overflow: hidden;
+}
+
+h1 {
+  color: $red;
+  font-family: "Teko", sans-serif;
+  font-size: 280px;
+  pointer-events: none;
+}
+
+p {
+  color: $brown;
+  font-family: "roboto", sans-serif;
+}

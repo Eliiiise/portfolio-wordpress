@@ -1,0 +1,46 @@
+header.project {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: relative;
+
+  h1 {
+    position: absolute;
+    bottom: -150px;
+    z-index: 100;
+  }
+
+  img {
+    position: absolute;
+    bottom: 50px;
+  }
+}
+
+.entry-content {
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 200px 25%;
+
+  .img-intra {
+    width: 100%;
+  }
+
+  .two-image {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      width: 30%;
+      margin: 50px 0;
+    }
+  }
+}
+
+.img-extra {
+  margin-left: -50%;
+  width: 200%;
+  margin-top: 150px;
+}
+
