@@ -1,6 +1,6 @@
 <article @php post_class() @endphp>
   <header class="{{ $project->couleur }} project">
-    <a href="{{ $project->retour }}">retour</a>
+    <a href="/projets">retour</a>
     <h1 class="entry-title">{{ $project->titre }}</h1>
     <image src="{{ $project->image->url }}" alt="{{ $project->image->alt }}" title="{{ $project->image->titre }}" class="image-presentation-projet js-image-presentation-projet">
   </header>

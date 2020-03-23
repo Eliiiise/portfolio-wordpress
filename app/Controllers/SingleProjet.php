@@ -8,8 +8,10 @@ class SingleProjet extends Controller
 {
     public function project() {
 
+
         return (object) [
             'titre' => get_field('titre_du_projet', get_the_ID()),
+            'titre_split' => str_split(get_field('titre_du_projet', get_the_ID())),
             'image' => $this->getImage(get_the_ID(),'image_du_projet'),
             'img1' => $this->getImage(get_the_ID(),'img_1'),
             'img2' => $this->getImage(get_the_ID(),'img_2'),

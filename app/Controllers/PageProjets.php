@@ -23,6 +23,7 @@ class PageProjets extends Controller
            {
                 $projects = array_map(function($project){
                     $name = get_field('titre_du_projet', $project);
+                    $name_split = str_split(get_field('titre_du_projet', $project));
                     $type = get_field('type_de_projet', $project);
                     $date = get_field('date_du_projet', $project);
                     $image = get_field('image_du_projet', $project);
@@ -49,6 +50,7 @@ class PageProjets extends Controller
                         'width' => $width,
                         'height' => $height,
                         'name' => $name,
+                        'name_split' => $name_split,
                         'type' => $type,
                         'date' => $date,
                         'link' => $link

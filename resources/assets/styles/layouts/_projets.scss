@@ -18,44 +18,65 @@
       height: 120vh;
       width: 100%;
 
-      .content-project {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+      span.span-title-project {
+        overflow: hidden;
         pointer-events: none;
-        margin-top: 25vh;
+        z-index: 10;
+        display: block;
+        position: absolute;
+        left: 10%;
+        top: 25vh;
+        height: 280px;
 
-        span {
-          overflow: hidden;
-          z-index: 10;
-          display: block;
-          position: absolute;
-          left: 6%;
-          top: 10vh;
-          height: 280px;
-        }
+        h1 {
+          display: flex;
 
-        img {
-          margin-left: 100px;
+          span {
+            display: block;
+            overflow: hidden;
+          }
         }
+      }
 
-        .miniInfo {
-          transform: rotate(90deg);
-          margin-right: -200px;
-          margin-left: 200px;
-        }
+      img {
+        margin-left: -50px;
+        position: absolute;
+        top: calc(50vh - 530px / 2);
+        left: calc(50% - 400px / 2);
+        width: 400px;
+        height: 530px;
+        pointer-events: stroke;
+      }
 
-        .nbProjet {
-          bottom: 50px;
-          right: 250px;
-          z-index: -10;
-          font-family: "Teko", sans-serif;
-          color: white;
-          font-size: 100px;
-        }
+      .miniInfo {
+        transform: rotate(90deg);
+        top: 40vh;
+        right: 200px;
+        position: absolute;
+        pointer-events: none;
+        transition: all 0.4s;
+      }
+
+      .nbProjet {
+        pointer-events: none;
+        bottom: 0;
+        right: 520px;
+        z-index: -10;
+        font-family: "Teko", sans-serif;
+        color: white;
+        font-size: 200px;
+        position: absolute;
+        transition: all 0.4s;
       }
     }
   }
+}
+
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
 }

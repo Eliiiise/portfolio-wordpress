@@ -1,90 +1,118 @@
 let cpt = 0;
 let ecouteurScroll = 1;
-const tempsTransition = 900;
+const tempsTransition = 500;
+let positionTransition = -1;
 
 export default {
   init () {
     // JavaScript to be fired on all pages
-    this.initEls();
+    if ( document.querySelector('.projets') ) {
+      positionTransition = 1;
+      this.initElsProjets();
+    }
+    else {
+      this.initElsProjet();
+    }
     this.initEvents();
   },
 
-  initEls () {
+  initElsProjets () {
     this.$els = {
-      titles: document.querySelectorAll('.js-title-project'),
+      letters: document.querySelectorAll('.js-letter-project'),
       images: document.querySelectorAll('.js-image-presentation-projet'),
       divs: document.querySelectorAll('.js-projet'),
-      div: document.querySelector('.js-projets:nth-of-type(1)'),
       projects: document.querySelector('.projets'),
-      scroll: window.scrollY,
+      body: document.querySelector('body'),
+      nbProjects: document.querySelectorAll('.js-npProjet'),
+      miniInfos: document.querySelectorAll('.js-miniInfo'),
+      transition: document.querySelector('.transition'),
+    };
+    this.nbProject = this.$els.divs.length;
+  },
+
+  initElsProjet () {
+    this.$els = {
+      transition: document.querySelector('.transition'),
     };
   },
 
   initEvents () {
     window.scrollTo(0,0);
-    this.$els.divs[0].scrollTo( 0 , this.$els.divs[0].clientHeight/20 );
-    this.getWichProject();
-    this.baseMonte();
-    this.getTitle();
-    this.getImage();
+    if ( this.$els.letters ) {
+      this.$els.divs[0].scrollTo( 0 , this.$els.divs[0].clientHeight/20 );
+      this.getWichProject();
+      this.baseMonte();
+      this.getTitle();
+      this.getImage();
+      this.hiddenBody();
+      this.transitionPage();
+    }
+    this.transitionPageGoOut();
   },
 
   getWichProject() {
     this.$els.divs.forEach((div) => {
         div.addEventListener('scroll', () => {
-          console.log(window.scrollY);
+
           if ( div.scrollTop >= div.clientHeight/11 && ecouteurScroll==1) {
-            console.log('next');
             cpt++;
-            if (cpt == 5) {
+            if (cpt == this.nbProject) {
               cpt = 0;
             }
             ecouteurScroll = 0;
             this.baseDescend(1);
+            this.infoHidden();
             this.change(cpt,+1);
           }
+
           else if ( div.scrollTop == 0 && ecouteurScroll==1) {
-            console.log('previous');
             cpt--;
             if (cpt == -1) {
-              cpt = 4;
+              cpt = this.nbProject-1;
             }
             ecouteurScroll = 0;
             this.baseMonte(1);
+            this.infoHidden();
             this.change(cpt,-1);
           }
+
         }, false);
     });
   },
 
   change(cpt,s) {
+
     setTimeout(() => {
       this.$els.projects.style.transform = `translateY(${-100*cpt}vh)`;
       window.scrollTo(0,0);
+
       if (s<0) {
         this.baseDescend(0);
       }
       else {
         this.baseMonte(0);
       }
-    }, tempsTransition/2);
+    }, 400);
 
     setTimeout(() => {
-        this.$els.divs.forEach((div) => {
-          div.scrollTo(0,div.clientHeight/20);
-          this.getTitle();
-          this.getImage();
-          ecouteurScroll = 1;
-        });
+      this.getTitle();
+      this.getImage();
     }, tempsTransition);
+
+    setTimeout(() => {
+      this.$els.divs.forEach((div) => {
+        div.scrollTo(0,div.clientHeight/20);
+      });
+      ecouteurScroll = 1;
+      this.getInfo();
+    }, tempsTransition+1000);
   },
 
   getTitle() {
-    this.$els.titles.forEach(function (title) {
-      setTimeout( () => {
-        title.style.transition = 'all 1s';
-        title.style.transform = 'translateY(0px)';
-      }, 100);
+
+    this.$els.letters.forEach(function (letter) {
+        letter.style.transition = 'all 1s';
+        letter.style.transform = 'translateX(0px)';
     });
   },
 
@@ -98,25 +126,78 @@ export default {
   },
 
   baseMonte(t) {
-    this.$els.titles.forEach(function (title) {
-    title.style.transform = 'translateY(300px)';
-      title.style.transition = `all ${t}s`;
-    });
+
+  this.$els.letters.forEach(function (letter) {
+      letter.style.transform = 'translateX(-200px)';
+      letter.style.transition = `all ${t}s`;
+  });
+
     this.$els.images.forEach(function (image) {
-    image.style.transform = 'translate(-100px,1000px) rotate(50deg)';
+    image.style.transform = 'translate(400px,1000px) rotate(50deg)';
     image.style.transition = `all ${t}s`;
     });
   },
 
   baseDescend(t) {
-      this.$els.titles.forEach(function (title) {
-        title.style.transform = 'translateY(-300px)';
-        title.style.transition = `all ${t}s`;
+    this.$els.letters.forEach(function (letter) {
+      letter.style.transform = 'translateX(-200px)';
+      letter.style.transition = `all ${t}s`;
+    });
+
+    this.$els.images.forEach(function (image) {
+      image.style.transform = 'translate(-400px,-1000px) rotate(-40deg)';
+      image.style.transition = `all ${t}s`;
+    });
+  },
+
+  hiddenBody() {
+    if ( this.$els.projects ) {
+      this.$els.body.style.height= '100vh';
+      this.$els.body.style.overflow= 'hidden';
+    }
+    else {
+      this.$els.body.style.height= 'auto';
+      this.$els.body.style.overflow= 'scroll';
+      cpt = 0;
+      this.change(0,0);
+    }
+  },
+
+  infoHidden() {
+    this.$els.nbProjects.forEach(function (nbProject) {
+      nbProject.style.opacity = '0';
+    });
+
+    this.$els.miniInfos.forEach(function (miniInfo) {
+      miniInfo.style.opacity = '0';
+    });
+  },
+
+  getInfo() {
+    this.$els.nbProjects.forEach(function (nbProject) {
+      nbProject.style.opacity = '1';
+    });
+
+    this.$els.miniInfos.forEach(function (miniInfo) {
+      miniInfo.style.opacity = '1';
+    });
+  },
+
+  transitionPage() {
+    this.$els.images.forEach((image) => {
+      image.addEventListener('click', () => {
+        const link = image.getAttribute('data-link');
+        this.$els.transition.style.transform = 'translateX(0)';
+        setTimeout(() => {
+          document.location.href=link;
+          positionTransition = -1;
+        },500);
       });
-      this.$els.images.forEach(function (image) {
-        image.style.transform = 'translate(-100px,-1000px) rotate(-40deg)';
-        image.style.transition = `all ${t}s`;
-      });
+    });
+  },
+
+  transitionPageGoOut() {
+    this.$els.transition.style.transform = `translateX(${100*positionTransition}%)`;
   },
 
   finalize() {
