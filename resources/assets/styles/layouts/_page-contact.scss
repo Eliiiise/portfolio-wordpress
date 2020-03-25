@@ -5,9 +5,17 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 
-  h1 {
-    font-size: 120px;
+  .title {
+    span {
+      overflow: hidden;
+
+      h1 {
+        transform: translateX(-60px);
+        font-size: 120px;
+      }
+    }
   }
 
   .link-contact {

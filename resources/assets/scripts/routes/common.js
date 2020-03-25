@@ -38,14 +38,14 @@ export default {
     setTimeout(() => {
       this.$els.transition.style.opacity = '0';
       this.$els.transition.style.transition = 'all 0s';
-    },1000);
+    },800);
     setTimeout(() => {
       this.$els.transition.style.transform = `translateX(${100*positionTransition}%)`;
-    },2000);
+    },900);
     setTimeout(() => {
       this.$els.transition.style.opacity = '1';
       this.$els.transition.style.transition = 'all 1s';
-    },3000);
+    },1500);
   },
 
   finalize() {

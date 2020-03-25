@@ -29,7 +29,7 @@
           <p>{{ $project->bilan }}</p>
         </div>
       </div>
-      <a href="{{ $project->next->link }}" class="next" >suite > {{ $project->next->name }}</a>
+      <a href="{{ $project->next->link }}" class="next" >prochain projet ></a>
   </div>
 
 </article>

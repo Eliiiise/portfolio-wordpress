@@ -92,7 +92,6 @@ export default {
   },
 
   getTitle() {
-
     this.$els.letters.forEach(function (letter) {
       letter.style.transition = 'all 1s';
       letter.style.transform = 'translateX(0px)';

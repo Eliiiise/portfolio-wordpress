@@ -13,12 +13,14 @@ export default {
       mainImage: document.querySelector('.js-image-presentation-projet'),
       title: document.querySelector('.js-entry-title'),
       images: document.querySelectorAll('img'),
+      next: document.querySelector('.next'),
     };
   },
 
   initEvents () {
     this.parallax();
     this.imageError();
+    this.transitionPage()
     console.log(AOS);
     AOS.init();
   },
@@ -39,6 +41,17 @@ export default {
         console.log('none');
       }
     })
+  },
+
+  transitionPage() {
+    const link = this.$els.next.getAttribute('href');
+      this.$els.next.removeAttribute('href');
+      this.$els.next.addEventListener('click', () => {
+        this.$els.transition.style.transform = 'translateX(0)';
+        setTimeout(function() {
+          document.location.href=link;
+        }, 500);
+     });
   },
 
   finalize() {

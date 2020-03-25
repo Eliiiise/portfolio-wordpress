@@ -26,6 +26,16 @@
     .bloc-right {
       width: 75%;
 
+      .title {
+        span {
+          overflow: hidden;
+
+          h1 {
+            transform: translateX(-200px);
+          }
+        }
+      }
+
       p {
         font-size: 35px;
       }

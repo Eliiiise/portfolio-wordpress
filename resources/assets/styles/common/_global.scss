@@ -20,8 +20,7 @@ p {
 a {
   color: $brown;
   font-weight: bolder;
-  transition: all 1s;
-  text-align: center;
+  cursor: pointer;
 
   &:hover {
     text-decoration: none;
