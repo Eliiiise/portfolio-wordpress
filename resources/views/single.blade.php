@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@include('partials.header')
+
 @section('content')
   <div class="transition"></div>
   @while(have_posts()) @php the_post() @endphp

@@ -7,21 +7,27 @@ import './autoload/**/*'
 // import local dependencies
 import Router from './util/Router';
 import common from './routes/common';
-import test from './routes/test';
 import home from './routes/home';
 import aboutUs from './routes/about';
-import scrollEffect from './routes/scrollEffect';
+import projets from './routes/page-projets';
+import single from './routes/single';
+import contact from './routes/page-contact';
+import info from './routes/page-info';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
   // All pages
   common,
   // Home page
-  test,
   home,
   // About Us page, note the change from about-us to aboutUs.
   aboutUs,
-  scrollEffect,
+  // Projects page
+  projets,
+  // Project page
+  single,
+  contact,
+  info,
 });
 
 // Load Events

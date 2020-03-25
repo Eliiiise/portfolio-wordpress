@@ -26,7 +26,6 @@ class SingleProjet extends Controller
             'couleur' => get_field('couleur', get_the_ID()),
             'bilan' => get_field('bilan_du_projet', get_the_ID()),
             'url-projet' => get_field('url_du_projet', get_the_ID()),
-            'retour' => get_field('projets', get_the_ID()),
             'next' => $this->getNextProject(get_field('titre_du_projet', get_the_ID()))
         ];
     }

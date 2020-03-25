@@ -1,5 +1,8 @@
 body {
   background-color: $light-grey;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 h1 {
@@ -12,4 +15,16 @@ h1 {
 p {
   color: $brown;
   font-family: "roboto", sans-serif;
+}
+
+a {
+  color: $brown;
+  font-weight: bolder;
+  transition: all 1s;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    color: $brown;
+  }
 }
