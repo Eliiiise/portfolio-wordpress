@@ -1,20 +1,10 @@
-/** Import Bootstrap functions */
-@import "~bootstrap/scss/functions";
-
-$theme-colors: (
-  primary: #292323
-);
-
-$brown: #635b59;
-$light-brown: #d1cece;
-$light-grey: #f3f1f0;
-$red: #a7a7a7;
-$red-light: #fff;
+$gray-dark: #141415;
 $white: #fff;
+
 $prj-rose: #f9d6e7;
 $prj-jaune: #ffe279;
 $prj-jaune-citron: #faf7cd;
-$prj-gris: #dfdfdf;
+$prj-gris: #e7e3df;
 $prj-vert: #daf9df;
 $prj-bleu: #edeff2;
 $prj-violet: #eccef1;
@@ -22,8 +12,6 @@ $prj-rouge: #ffa89a;
 $prj-orange: #ffcc60;
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap");
 
-/** Bootstrap navbar fix (https://git.io/fADqW) */
-$navbar-dark-toggler-icon-bg: none;
-$navbar-light-toggler-icon-bg: none;
-
+$font-title: "Red Rose", cursive;

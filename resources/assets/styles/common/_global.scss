@@ -1,29 +1,30 @@
 body {
-  background-color: $light-grey;
+  background-color: $black;
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
 
 h1 {
-  color: $red;
-  font-family: "Teko", sans-serif;
-  font-size: 280px;
+  color: $white;
+  font-family: $font-title;
+  font-weight: 800;
+  font-size: 200px;
   pointer-events: none;
 }
 
 p {
-  color: $brown;
+  color: $white;
   font-family: "roboto", sans-serif;
 }
 
 a {
-  color: $brown;
+  color: $white;
   font-weight: bolder;
   cursor: pointer;
 
   &:hover {
     text-decoration: none;
-    color: $brown;
+    color: $white;
   }
 }

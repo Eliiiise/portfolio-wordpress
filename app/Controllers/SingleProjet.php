@@ -21,11 +21,13 @@ class SingleProjet extends Controller
             'imgG' => $this->getImage(get_the_ID(),'g_img'),
             'date' => get_field('date_du_projet', get_the_ID()),
             'type' => get_field('type_de_projet', get_the_ID()),
+            'type_split' => explode("_", get_field('type_de_projet', get_the_ID())),
             'description' => get_field('description_du_projet', get_the_ID()),
             'techno' => get_field('technologie_du_projet', get_the_ID()),
+            'techno_split' => explode("-", get_field('technologie_du_projet', get_the_ID())),
             'couleur' => get_field('couleur', get_the_ID()),
             'bilan' => get_field('bilan_du_projet', get_the_ID()),
-            'url-projet' => get_field('url_du_projet', get_the_ID()),
+            'url_projet' => get_field('url_du_projet', get_the_ID()),
             'next' => $this->getNextProject(get_field('titre_du_projet', get_the_ID()))
         ];
     }

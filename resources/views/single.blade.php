@@ -3,7 +3,8 @@
 @include('partials.header')
 
 @section('content')
-  <div class="transition"></div>
+  @includeIf('partials.responsive')
+
   @while(have_posts()) @php the_post() @endphp
     @include('partials.content-single-'.get_post_type())
   @endwhile

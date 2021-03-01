@@ -13,6 +13,7 @@ import projets from './routes/page-projets';
 import single from './routes/single';
 import contact from './routes/page-contact';
 import info from './routes/page-info';
+import shift from './util/shift';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -33,6 +34,7 @@ const routes = new Router({
 // Load Events
 jQuery(document).ready(() => {
   routes.loadEvents();
+  shift.init();
 });
 
 

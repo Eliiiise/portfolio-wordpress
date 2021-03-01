@@ -52,6 +52,7 @@ class PageProjets extends Controller
                         'name' => $name,
                         'name_split' => $name_split,
                         'type' => $type,
+                        'type_split' => explode("_" , $type),
                         'date' => $date,
                         'link' => $link
                     ];
@@ -62,7 +63,7 @@ class PageProjets extends Controller
 
            }
 
-            return $projects;
+           return $projects;
 
     }
 }

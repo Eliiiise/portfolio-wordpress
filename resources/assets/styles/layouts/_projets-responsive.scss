@@ -1,0 +1,29 @@
+@media all and (max-width: 1100px) {
+  .content-projects {
+    img {
+      width: 350px !important;
+      height: 460px !important;
+      top: calc(50vh - 460px / 2) !important;
+      left: calc(50% - 300px / 2) !important;
+    }
+
+    h1 {
+      font-size: 230px;
+    }
+  }
+}
+
+@media all and (max-height: 700px) {
+  .content-projects {
+    img {
+      width: 350px !important;
+      height: 460px !important;
+      top: calc(50vh - 460px / 2) !important;
+      left: calc(50% - 300px / 2) !important;
+    }
+  }
+
+  h1 {
+    font-size: 230px;
+  }
+}

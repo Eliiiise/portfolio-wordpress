@@ -166,15 +166,25 @@ export default {
   },
 
   transitionPage() {
-    this.$els.images.forEach((image) => {
-      image.addEventListener('click', () => {
-        const link = image.getAttribute('data-link');
+    this.$els.divs.forEach((div) => {
+      div.addEventListener('click', () => {
+        const link = div.getAttribute('data-link');
         this.$els.transition.style.transform = 'translateX(0)';
         setTimeout(() => {
           document.location.href=link;
         },500);
       });
     });
+  },
+
+  lettersHover() {
+    this.$els.letters.forEach((letter) => {
+      letter.addEventListener('hover'), () => {
+        this.$els.letters.forEach((letter) => {
+          letter.classList.add('stroke');
+        })
+      }
+    })
   },
 
   finalize() {

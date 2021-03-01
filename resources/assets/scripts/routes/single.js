@@ -14,14 +14,15 @@ export default {
       title: document.querySelector('.js-entry-title'),
       images: document.querySelectorAll('img'),
       next: document.querySelector('.next'),
+      menus: document.querySelectorAll('.banner .nav-primary div ul#menu-menu-1 li a'),
     };
   },
 
   initEvents () {
     this.parallax();
     this.imageError();
-    this.transitionPage()
-    console.log(AOS);
+    this.transitionPage();
+    this.menuStyle();
     AOS.init();
   },
 
@@ -52,6 +53,26 @@ export default {
           document.location.href=link;
         }, 500);
      });
+  },
+
+  menuStyle() {
+    this.$els.menus.forEach((menu) => {
+      if (window.scrollY == 0) {
+        menu.classList.add('white-menu');
+        menu.classList.remove('grey-menu');
+      }
+      window.addEventListener('scroll', () => {
+        menu.style.transition= 'all 0.5s'
+        if (window.scrollY == 0) {
+          menu.classList.add('white-menu');
+          menu.classList.remove('grey-menu');
+        }
+        else {
+          menu.classList.add('grey-menu');
+          menu.classList.remove('white-menu');
+        }
+      })
+    })
   },
 
   finalize() {

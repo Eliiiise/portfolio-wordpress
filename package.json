@@ -56,7 +56,7 @@
     "imagemin-mozjpeg": "~7.0.0",
     "imagemin-webpack-plugin": "~2.2.0",
     "import-glob": "~1.5",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "postcss-loader": "~2.1.0",
     "postcss-safe-parser": "~3.0",
     "resolve-url-loader": "~2.3.1",
@@ -80,6 +80,7 @@
     "bootstrap": "v4.3.1",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.7",
+    "simplex-noise": "^2.4.0",
     "swup": "^2.0.9"
   }
 }

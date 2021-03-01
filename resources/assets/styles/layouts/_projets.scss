@@ -1,9 +1,26 @@
 .content-projects {
   position: relative;
   overflow: hidden;
+  -ms-overflow-style: none;
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  &__circle {
+    position: absolute;
+    width: 70vw;
+    height: 70vw;
+    min-width: 120vh;
+    min-height: 120vh;
+    background-color: $gray-dark;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    pointer-events: none;
   }
 
   .projet {
@@ -17,16 +34,19 @@
     .scroll {
       height: 120vh;
       width: 100%;
+      display: flex;
+      justify-content: center;
 
       span.span-title-project {
         overflow: hidden;
-        pointer-events: none;
         z-index: 10;
         display: block;
         position: absolute;
-        left: 10%;
-        top: 25vh;
+        top: 26vh;
         height: 280px;
+        cursor: pointer;
+        pointer-events: all;
+        transition: all 1s;
 
         h1 {
           display: flex;
@@ -42,16 +62,16 @@
         margin-left: -50px;
         position: absolute;
         top: calc(50vh - 530px / 2);
-        left: calc(50% - 400px / 2);
+        left: calc(50% - 320px / 2);
         width: 400px;
         height: 530px;
-        pointer-events: stroke;
+        pointer-events: none;
       }
 
       .miniInfo {
-        transform: rotate(90deg);
-        top: 40vh;
-        right: 200px;
+        bottom: 190px;
+        left: calc(59% + 120px);
+        width: 130px;
         position: absolute;
         pointer-events: none;
         transition: all 0.4s;
@@ -59,12 +79,13 @@
 
       .nbProjet {
         pointer-events: none;
-        bottom: 0;
-        right: 520px;
-        z-index: -10;
+        bottom: 140px;
+        left: 59%;
+        z-index: 20;
         font-family: "Teko", sans-serif;
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 200px;
+        color: rgba(255, 255, 255, 0);
+        -webkit-text-stroke: 2px $white;
+        font-size: 100px;
         position: absolute;
         transition: all 0.4s;
       }
@@ -80,3 +101,4 @@
 html.is-animating .transition-fade {
   opacity: 0;
 }
+

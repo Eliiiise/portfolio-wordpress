@@ -10,8 +10,13 @@
     justify-content: space-between;
 
     p {
-      color: $light-brown;
+      color: $white;
+      opacity: 0.6;
       font-weight: normal;
+
+      b {
+        color: $white !important;
+      }
     }
   }
 

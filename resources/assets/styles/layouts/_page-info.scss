@@ -16,10 +16,11 @@
 
     .bloc-left {
       width: 15%;
+      margin-top: 15px;
 
       b {
         font-weight: normal;
-        color: $brown;
+        color: $white;
       }
     }
 
@@ -32,6 +33,7 @@
 
           h1 {
             transform: translateX(-200px);
+            font-size: 200px;
           }
         }
       }

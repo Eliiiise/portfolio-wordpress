@@ -9,7 +9,7 @@
     ]
   },
   "publicPath": "/wp-content/themes/monportfolio",
-  "devUrl": "http://wordpress.localhost/",
+  "devUrl": "http://portfolio.local/",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",
   "watch": [

@@ -5,28 +5,54 @@ header.project {
   justify-content: center;
   align-items: end;
   position: relative;
+  overflow: hidden;
 
   h1 {
     position: absolute;
-    bottom: -150px;
+    color: rgba(0, 0, 0, 0) !important;
+    -webkit-text-stroke: 3px $white;
+    top: 26vh;
     z-index: 10;
   }
 
   img {
     position: absolute;
-    bottom: 80px;
-    transition: all 1s;
-    transform: translateY(500px) rotate(-50deg);
+    top: calc(50vh - 530px / 2);
+    left: calc(50% - 380px / 2);
+    transition: all 1.5s;
+    transform: translateY(1000px) rotate(-80deg);
   }
 }
 
 .entry-content {
   flex-wrap: wrap;
   padding: 200px 25%;
+  background-color: $black;
 
   .img-intra {
     width: 100%;
     margin: 50px 0;
+  }
+
+  p {
+    color: $white !important;
+  }
+
+  a {
+    font-family: "roboto", sans-serif;
+    font-weight: 300;
+    color: $white !important;
+    font-size: 12px;
+
+    svg {
+      width: 20px;
+      height: 80px;
+      margin-left: 10px;
+
+      path {
+        fill: $white;
+      }
+    }
   }
 
   .two-image {
