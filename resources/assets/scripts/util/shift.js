@@ -127,7 +127,7 @@ export default {
     if (hue%360 > 120 && hue%360 < 180) {
       hue = hue + 60
     }
-    ctx.a.fillStyle = `hsla(${hue},99%,50%,${fadeInOut(life,ttl)})`; // `hsla(${hue},60%,30%,${fadeInOut(life,ttl)})
+    ctx.a.fillStyle = `hsla(${hue},99%,40%,${fadeInOut(life,ttl)})`; // `hsla(${hue},60%,30%,${fadeInOut(life,ttl)})
     ctx.a.beginPath();
     ctx.a.arc(x,y, radius, 0, TAU);
     ctx.a.fill();

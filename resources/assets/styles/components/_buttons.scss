@@ -1,0 +1,66 @@
+.buttons {
+  transition: all 0.2s ease;
+  position: relative;
+
+  &__circle {
+    height: 50%;
+    width: 50%;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.4s ease;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: -1;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    path {
+      transition: all 0.2s ease;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.2);
+
+    .buttons__arrow {
+      -webkit-animation: translate 0.3s ease-in-out;
+
+      path {
+        stroke: black;
+      }
+    }
+
+    .buttons__circle {
+      transform: scale(2);
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes translate {
+    49% {
+      transform: translate(30px, -30px);
+      opacity: 0;
+    }
+
+    50% {
+      transform: translate(-30px, 30px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+}

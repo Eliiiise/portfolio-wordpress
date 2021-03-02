@@ -7,25 +7,24 @@
 
   <div class="projets resp">
 
-  @php
-    $nbProjet = 0;
-  @endphp
-
   @foreach ( $projects as $project )
-    @php
-      $nbProjet++;
-    @endphp
 
     <div class="content-projects">
       <div class="content-projects__circle"></div>
 
-      <div class="projet js-projet" data-link="{{ $project->link }}">
+      <div class="projet js-projet">
         <div class="scroll">
           <img src="{{ $project->thumb }}"  alt="{{ $project->alt }}" title="{{ $project->title }}" class="image-presentation-projet js-image-presentation-projet">
 
           <span class="js-span-title-project span-title-project">
             <h1>
+              @php
+              $cpt = 0
+              @endphp
               @foreach ( $project->name_split as $letter )
+                @php
+                  $cpt += 50
+                @endphp
                 <span>
                   <h1 class="js-letter-project">
                     {{ $letter }}
@@ -33,20 +32,21 @@
                 </span>
               @endforeach
             </h1>
+
+            <div class="miniInfo js-miniInfo">
+
+              <p>
+                {{ $project->date }}
+
+                @foreach ( $project->type_split as $word )
+                  <br>
+                  {{ $word }}
+                @endforeach
+              </p>
+
+              @includeIf('components.buttons', ['buttonsLink' => $project->link])
+            </div>
           </span>
-
-          <p class="miniInfo js-miniInfo">
-            {{ $project->date }}
-
-            @foreach ( $project->type_split as $word )
-               <br>
-               {{ $word }}
-            @endforeach
-          </p>
-
-          <p class="nbProjet js-npProjet">
-            0{{ $nbProjet }}
-          </p>
         </div>
       </div>
     </div>

@@ -31,7 +31,6 @@ export default {
     this.getTitle();
     this.getImage();
     this.hiddenBody();
-    this.transitionPage();
   },
 
   getWichProject() {
@@ -92,9 +91,16 @@ export default {
   },
 
   getTitle() {
+    let cpt
+    let parentMemo
     this.$els.letters.forEach(function (letter) {
-      letter.style.transition = 'all 1s';
+      if (letter.parentElement.parentElement !== parentMemo) {
+        cpt = 0
+        parentMemo = letter.parentElement.parentElement
+      }
+      letter.style.transition = `all 1s ease ${cpt}s`;
       letter.style.transform = 'translateX(0px)';
+      cpt += 0.05
     });
   },
 
@@ -110,7 +116,7 @@ export default {
   baseMonte(t) {
 
     this.$els.letters.forEach(function (letter) {
-      letter.style.transform = 'translateX(-200px)';
+      letter.style.transform = 'translateX(-220px)';
       letter.style.transition = `all ${t}s`;
     });
 
@@ -122,7 +128,7 @@ export default {
 
   baseDescend(t) {
     this.$els.letters.forEach(function (letter) {
-      letter.style.transform = 'translateX(-200px)';
+      letter.style.transform = 'translateX(-220px)';
       letter.style.transition = `all ${t}s`;
     });
 
@@ -162,18 +168,6 @@ export default {
 
     this.$els.miniInfos.forEach(function (miniInfo) {
       miniInfo.style.opacity = '1';
-    });
-  },
-
-  transitionPage() {
-    this.$els.divs.forEach((div) => {
-      div.addEventListener('click', () => {
-        const link = div.getAttribute('data-link');
-        this.$els.transition.style.transform = 'translateX(0)';
-        setTimeout(() => {
-          document.location.href=link;
-        },500);
-      });
     });
   },
 

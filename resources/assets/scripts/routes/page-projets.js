@@ -16,9 +16,9 @@ export default {
       divs: document.querySelectorAll('.js-projet'),
       projects: document.querySelector('.projets'),
       body: document.querySelector('body'),
-      nbProjects: document.querySelectorAll('.js-npProjet'),
       miniInfos: document.querySelectorAll('.js-miniInfo'),
       transition: document.querySelector('.transition'),
+      bouttons: document.querySelector('.js-buttons'),
     };
     this.nbProject = this.$els.divs.length;
   },
@@ -31,7 +31,6 @@ export default {
     this.getTitle();
     this.getImage();
     this.hiddenBody();
-    this.transitionPage();
   },
 
   getWichProject() {
@@ -108,7 +107,6 @@ export default {
   },
 
   baseMonte(t) {
-
     this.$els.letters.forEach(function (letter) {
       letter.style.transform = 'translateX(-200px)';
       letter.style.transition = `all ${t}s`;
@@ -146,34 +144,14 @@ export default {
   },
 
   infoHidden() {
-    this.$els.nbProjects.forEach(function (nbProject) {
-      nbProject.style.opacity = '0';
-    });
-
     this.$els.miniInfos.forEach(function (miniInfo) {
       miniInfo.style.opacity = '0';
     });
   },
 
   getInfo() {
-    this.$els.nbProjects.forEach(function (nbProject) {
-      nbProject.style.opacity = '1';
-    });
-
     this.$els.miniInfos.forEach(function (miniInfo) {
       miniInfo.style.opacity = '1';
-    });
-  },
-
-  transitionPage() {
-    this.$els.divs.forEach((div) => {
-      div.addEventListener('click', () => {
-        const link = div.getAttribute('data-link');
-        this.$els.transition.style.transform = 'translateX(0)';
-        setTimeout(() => {
-          document.location.href=link;
-        },500);
-      });
     });
   },
 
