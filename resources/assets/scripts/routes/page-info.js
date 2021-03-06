@@ -18,9 +18,12 @@ export default {
   },
 
   getTitle() {
+    let cpt = 0
+
     this.$els.letters.forEach(function (letter) {
-      letter.style.transition = 'all 1s';
+      letter.style.transition = `all 1s ease ${cpt}s`;
       letter.style.transform = 'translateX(0px)';
+      cpt += 0.05
     });
   },
 

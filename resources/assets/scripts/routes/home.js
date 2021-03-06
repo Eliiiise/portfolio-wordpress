@@ -6,7 +6,14 @@ export default {
   init () {
     // JavaScript to be fired on all pages
     this.initEls();
+    this.bindMethods();
     this.initEvents();
+
+    document.body.style.overflow= 'hidden';
+    window.scrollTo(0,0);
+    this.$els.divs[0].scrollTo( 0 , this.$els.divs[0].clientHeight/20 );
+    this.getTitle();
+    this.getImage();
   },
 
   initEls () {
@@ -23,44 +30,45 @@ export default {
     this.nbProject = this.$els.divs.length;
   },
 
-  initEvents () {
-    window.scrollTo(0,0);
-    this.$els.divs[0].scrollTo( 0 , this.$els.divs[0].clientHeight/20 );
-    this.getWichProject();
-    this.baseMonte();
-    this.getTitle();
-    this.getImage();
-    this.hiddenBody();
+  bindMethods () {
+    this.getWichProject = this.getWichProject.bind(this);
   },
 
-  getWichProject() {
-    this.$els.divs.forEach((div) => {
-      div.addEventListener('scroll', () => {
+  initEvents () {
+    if (this.$els.divs) {
+      this.$els.divs.forEach((div) => {
+        div.addEventListener('scroll', this.getWichProject, false);
+      });
+    }
+  },
 
-        if ( div.scrollTop >= div.clientHeight/11 && ecouteurScroll==1) {
-          cpt++;
-          if (cpt == this.nbProject) {
-            cpt = 0;
-          }
-          ecouteurScroll = 0;
-          this.baseDescend(1);
-          this.infoHidden();
-          this.change(cpt,+1);
-        }
+  getWichProject(e) {
+    const div = e.target
+    if ( div.scrollTop >= div.clientHeight/11 && ecouteurScroll==1 ) {
+      cpt++;
 
-        else if ( div.scrollTop == 0 && ecouteurScroll==1) {
-          cpt--;
-          if (cpt == -1) {
-            cpt = this.nbProject-1;
-          }
-          ecouteurScroll = 0;
-          this.baseMonte(1);
-          this.infoHidden();
-          this.change(cpt,-1);
-        }
+      if (cpt == this.nbProject) {
+        cpt = 0;
+      }
 
-      }, false);
-    });
+      ecouteurScroll = 0;
+      this.baseDescend(1);
+      this.infoHidden();
+      this.change(cpt,+1);
+    }
+
+    else if ( div.scrollTop == 0 && ecouteurScroll==1 ) {
+      cpt--;
+
+      if (cpt == -1) {
+        cpt = this.nbProject-1;
+      }
+
+      ecouteurScroll = 0;
+      this.baseMonte(1);
+      this.infoHidden();
+      this.change(cpt,-1);
+    }
   },
 
   change(cpt,s) {
@@ -136,19 +144,6 @@ export default {
       image.style.transform = 'translate(-400px,-1000px) rotate(-40deg)';
       image.style.transition = `all ${t}s`;
     });
-  },
-
-  hiddenBody() {
-    if ( this.$els.projects ) {
-      this.$els.body.style.height= '100vh';
-      this.$els.body.style.overflow= 'hidden';
-    }
-    else {
-      this.$els.body.style.height= 'auto';
-      this.$els.body.style.overflow= 'scroll';
-      cpt = 0;
-      this.change(0,0);
-    }
   },
 
   infoHidden() {

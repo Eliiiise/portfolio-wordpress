@@ -3,10 +3,11 @@
   @include('partials.head')
 
   <body @php body_class() @endphp>
+    {{--<canvas width=32 height=32></canvas>--}}
     @php do_action('get_header') @endphp
     <div role="document" class="document">
       <div class="content">
-        <main class="main">
+        <main id="swup" class="main transition-fade">
           @yield('content')
         </main>
       </div>

@@ -16,7 +16,7 @@ const rangeHue = 60;
 const xOff = 0.0015;
 const yOff = 0.0015;
 const zOff = 0.0015;
-const backgroundColor = 'hsl(0,0%,64%)'; // 'hsla(0,0%,5%,1)'
+const backgroundColor = 'hsl(239,57%,42%)'; // 'hsla(0,0%,5%,1)'
 const TAU = 2 * PI;
 const fadeInOut = (t, m) => {
   let hm = 0.5 * m;
@@ -34,6 +34,7 @@ let baseHue;
 export default {
   init() {
     this.bindMethods()
+    // this.initEls()
     this.initEvents()
   },
 
@@ -41,6 +42,10 @@ export default {
     this.setup = this.setup.bind(this)
     this.resize = this.resize.bind(this)
     this.draw = this.draw.bind(this)
+  },
+
+  initEls() {
+    this.favicon = document.querySelector('link[rel*="icon"]')
   },
 
   initEvents() {
@@ -121,13 +126,13 @@ export default {
 
   drawCircle(x, y, life, ttl, radius, hue) {
     ctx.a.save();
-    if (hue%360 > 60 && hue%360 < 120) {
-      hue = hue - 60
+    if (hue%360 > 30 && hue%360 < 120) {
+      hue = hue - 90
     }
-    if (hue%360 > 120 && hue%360 < 180) {
-      hue = hue + 60
+    if (hue%360 > 120 && hue%360 < 210) {
+      hue = hue + 90
     }
-    ctx.a.fillStyle = `hsla(${hue},99%,40%,${fadeInOut(life,ttl)})`; // `hsla(${hue},60%,30%,${fadeInOut(life,ttl)})
+    ctx.a.fillStyle = `hsla(${hue},99%,50%,${fadeInOut(life,ttl)})`; // `hsla(${hue},60%,30%,${fadeInOut(life,ttl)})
     ctx.a.beginPath();
     ctx.a.arc(x,y, radius, 0, TAU);
     ctx.a.fill();
@@ -189,6 +194,7 @@ export default {
     ctx.b.fillRect(0, 0, canvas.b.width, canvas.b.height);
     this.updateCircles();
     this.render();
+    // this.favicon.href = canvas.b.toDataURL('image/png');
     window.requestAnimationFrame(this.draw);
   },
 }

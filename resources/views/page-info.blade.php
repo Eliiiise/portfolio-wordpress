@@ -4,7 +4,6 @@
 
 @section('content')
   @includeIf('partials.responsive')
-
   <div class="info resp">
     <div class="bloc">
       <div class="bloc-left">
@@ -14,10 +13,10 @@
         <div class="title">
           @foreach ( $info->titre_split as $letter )
             <span>
-              <h1 class="js-letter-project">
-                {{ $letter }}
-              </h1>
-            </span>
+            <h1 class="js-letter-project">
+              {{ $letter }}
+            </h1>
+          </span>
           @endforeach
         </div>
       </div>

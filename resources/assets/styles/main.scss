@@ -14,6 +14,8 @@
 
 /** Import theme styles */
 @import "common/global";
+@import "common/transitions";
+@import "common/smooth";
 @import "common/responsive";
 @import "components/buttons";
 @import "components/comments";

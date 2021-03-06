@@ -1,0 +1,18 @@
+.scroll-container {
+  position: absolute;
+  overflow: hidden;
+  z-index: 10;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.viewport {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

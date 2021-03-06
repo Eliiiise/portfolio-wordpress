@@ -36,23 +36,13 @@ header.project {
 
   p {
     color: $white !important;
+    opacity: 0.8;
   }
 
-  a {
-    font-family: "roboto", sans-serif;
-    font-weight: 300;
-    color: $white !important;
-    font-size: 12px;
-
-    svg {
-      width: 20px;
-      height: 80px;
-      margin-left: 10px;
-
-      path {
-        fill: $white;
-      }
-    }
+  .next {
+    display: table;
+    margin-left: auto;
+    margin-top: 20px;
   }
 
   .two-image {
